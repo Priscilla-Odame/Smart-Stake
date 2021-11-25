@@ -8,8 +8,8 @@
 		<version>2.6.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>smartstake</groupId>
+	<artifactId>smartstake</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SmartStake</name>
 	<description>Trading System Project</description>
