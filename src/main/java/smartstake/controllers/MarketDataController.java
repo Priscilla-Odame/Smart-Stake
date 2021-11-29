@@ -28,4 +28,15 @@ public class MarketDataController {
         return allMarketData;
     }
 
+
+    /**
+     * Get market data for a single product
+     */
+    @GetMapping("/{product}")
+    public List<MarketData> getMarketDataForProduct(@PathVariable String ticker) {
+        List<MarketData> marketDataFromExchange = restTemplate.getForObject("https://exchange.matraining.com/md/"+ticker, List.class);
+        List<MarketData> marketDataFromExchange2 = restTemplate.getForObject("https://exchange2.matraining.com/md"+ticker, List.class);
+        List<MarketData> allMarketData = Stream.concat(marketDataFromExchange.stream(), marketDataFromExchange2.stream()).collect(Collectors.toList());
+        return allMarketData;
+    }
 }
