@@ -57,4 +57,9 @@ public class PortfolioService {
             }
         }
     }
+
+    //delete portfolio
+    public void deletePortfolio(String ID) {
+        portfolios.removeIf(t -> t.getId().equals(ID));
+    }
 }
