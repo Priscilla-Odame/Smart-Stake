@@ -1,5 +1,6 @@
 package smartstake.entities;
 import smartstake.otherClasses.Side;
+import smartstake.otherClasses.Status;
 
 import javax.persistence.*;
 
@@ -11,7 +12,13 @@ public class Order {
     private Long id;
 
     private int quantity;
+    private String ticker;
+
+    @Enumerated(EnumType.STRING)
     private Side side;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     @ManyToOne
     private Portfolio portfolio;

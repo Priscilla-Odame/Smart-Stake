@@ -9,7 +9,9 @@ public class Position {
     @Id
     @GeneratedValue
     private Long id;
+
     private int quantity;
+    private String ticker;
 
 
     @ManyToOne
