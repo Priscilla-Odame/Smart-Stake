@@ -8,10 +8,13 @@ import javax.persistence.*;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
+
     private int quantity;
     private Side side;
+
+    @ManyToOne
+    private Portfolio portfolio;
 
     public Order(int quantity, Side side) {
         this.quantity = quantity;
@@ -23,10 +26,6 @@ public class Order {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public int getQuantity() {
@@ -44,4 +43,13 @@ public class Order {
     public void setSide(Side side) {
         this.side = side;
     }
+
+    public Portfolio getPortfolio() {
+        return portfolio;
+    }
+
+    public void setPortfolio(Portfolio portfolio) {
+        this.portfolio = portfolio;
+    }
+
 }

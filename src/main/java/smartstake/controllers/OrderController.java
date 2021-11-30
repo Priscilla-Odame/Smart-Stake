@@ -14,8 +14,8 @@ public class OrderController {
     @Autowired
     private OrderRepository orderRepository;
 
-    @GetMapping("/orders")
-    public List<Order> getOrders(){
-
-    }
+//    @GetMapping("/orders")
+//    public List<Order> getOrders(){
+//
+//    }
 }

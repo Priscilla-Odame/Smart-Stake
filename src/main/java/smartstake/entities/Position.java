@@ -1,7 +1,40 @@
 package smartstake.entities;
 
-public class Position {
-    private int quantity;
-    private Asset asset;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Positions")
+public class Position {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    private int quantity;
+
+
+    @ManyToOne
+    private Portfolio portfolio;
+
+    public Position() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Portfolio getPortfolio() {
+        return portfolio;
+    }
+
+    public void setPortfolio(Portfolio portfolio) {
+        this.portfolio = portfolio;
+    }
 }

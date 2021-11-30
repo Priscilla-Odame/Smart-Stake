@@ -14,6 +14,9 @@ public class  Client {
     private String password;
     private String email;
 
+    public Client() {
+    }
+
     public Integer getId() {
         return id;
     }
