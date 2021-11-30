@@ -3,6 +3,8 @@ package smartstake.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import smartstake.entities.Client;
 import smartstake.entities.ClientRepository;
@@ -20,6 +22,11 @@ public class ClientController {
         model.addAttribute("listClients", listClients);
 
         return listClients;
+    }
+
+    @PostMapping
+    public void addClient(@RequestBody Client client){
+
     }
 
 }

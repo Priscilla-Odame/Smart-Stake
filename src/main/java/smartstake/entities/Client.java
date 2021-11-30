@@ -1,5 +1,7 @@
 package smartstake.entities;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 
 @Entity
