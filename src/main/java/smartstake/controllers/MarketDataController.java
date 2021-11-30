@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import smartstake.models.MarketData;
 
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -19,11 +22,10 @@ public class MarketDataController {
     RestTemplate restTemplate;
 
     @GetMapping
-    public List<MarketData> getMarketData() {
+    public Map<String, List<MarketData>> getMarketData() {
         List<MarketData> marketDataFromExchange = restTemplate.getForObject("https://exchange.matraining.com/md", List.class);
         List<MarketData> marketDataFromExchange2 = restTemplate.getForObject("https://exchange2.matraining.com/md", List.class);
-        List<MarketData> allMarketData = Stream.concat(marketDataFromExchange.stream(), marketDataFromExchange2.stream()).collect(Collectors.toList());
-        return allMarketData;
+        return Map.of("Exchange", marketDataFromExchange, "Exchange2", marketDataFromExchange2);
     }
 
 
@@ -31,10 +33,18 @@ public class MarketDataController {
      * Get market data for a single product
      */
     @GetMapping("/{ticker}")
-    public List<MarketData> getMarketDataForProduct(@PathVariable String ticker) {
+    public Map<String, MarketData> getMarketDataForProduct(@PathVariable String ticker) {
         MarketData marketDataFromExchange = restTemplate.getForObject("https://exchange.matraining.com/md/" + ticker, MarketData.class);
         MarketData marketDataFromExchange2 = restTemplate.getForObject("https://exchange2.matraining.com/md/" + ticker, MarketData.class);
-        List<MarketData> allMarketData = List.of(marketDataFromExchange, marketDataFromExchange2);
-        return allMarketData;
+        return Map.of("Exchange", marketDataFromExchange, "Exchange2", marketDataFromExchange2);
     }
+
 }
+
+
+/*
+    Show a column to show where the stocks are coming from
+
+
+
+ */
