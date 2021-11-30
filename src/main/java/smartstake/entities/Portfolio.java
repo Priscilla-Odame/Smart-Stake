@@ -9,6 +9,9 @@ public class Portfolio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+    private String description;
+
 
     @ManyToOne
     private Client client;
@@ -16,7 +19,7 @@ public class Portfolio {
     public Portfolio() {
     }
 
-    public Portfolio(Long id, Client client) {
+    public Portfolio(Long id, Client client, String name, String description) {
         this.id = id;
         this.client = client;
     }
@@ -35,5 +38,20 @@ public class Portfolio {
 
     public Long getId() {
         return id;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
