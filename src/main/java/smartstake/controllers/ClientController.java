@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import smartstake.entities.Client;
-import smartstake.entities.ClientRepository;
+import smartstake.repositories.ClientRepository;
 
 import java.util.List;
 
