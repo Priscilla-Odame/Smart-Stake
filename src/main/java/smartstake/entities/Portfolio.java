@@ -8,7 +8,8 @@ import javax.persistence.*;
 public class Portfolio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String ID;
+    private Integer id;
+
     private String name;
     private String description;
 
@@ -19,15 +20,15 @@ public class Portfolio {
     public Portfolio() {
     }
 
-    public Portfolio(String ID, Client client, String name, String description) {
-        this.ID = ID;
+    public Portfolio(Integer id, Client client, String name, String description) {
+        this.id = id;
         this.client = client;
         this.name = name;
         this.description = description;
     }
 
-    public void setId(String ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Client getClient() {
@@ -38,8 +39,8 @@ public class Portfolio {
         this.client = client;
     }
 
-    public String getId() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {
