@@ -14,13 +14,13 @@ public class PortfolioService {
 
     //List all portfolios
     Portfolio portfolio1 = new Portfolio(
-            1L,
+            "1",
             new Client(1,"Priscilla","Odame","1234","admin@gmail.com"),
             "stock",
             "50% shares from MSOFT and 20% from AAPL"
     );
     Portfolio portfolio2 = new Portfolio(
-            2L,
+            "2",
             new Client(1,"Jeff","Asmah","1234","admin@gmail.com"),
             "stock",
             "20% shares from AAPL and 20% from MSOFT"
@@ -33,9 +33,9 @@ public class PortfolioService {
     }
 
     //Get a portfolio by id
-    public Portfolio getPortfolio(Long id) {
+    public Portfolio getPortfolio(String ID) {
         Portfolio portfolio = portfolios.stream()
-                .filter(t -> id.equals(t.getId()))
+                .filter(t -> ID.equals(t.getId()))
                 .findFirst()
                 .orElse(null);
 
@@ -46,7 +46,15 @@ public class PortfolioService {
     public void addPortfolio(Portfolio portfolio) {
         portfolios.add(portfolio);
     }
-//    public void addLocation(Portfolio portfolio) {
-//        portfolios.add(portfolio);
-//    }
+
+    //Update portfolio
+    public void updatePortfolio(String ID, Portfolio portfolio) {
+        for(int i = 0; i < portfolios.size(); i++) {
+            Portfolio p = portfolios.get(i);
+
+            if (p.getId().equals(ID)) {
+                portfolios.set(i, portfolio);
+            }
+        }
+    }
 }

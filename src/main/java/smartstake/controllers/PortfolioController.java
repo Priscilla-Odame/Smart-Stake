@@ -13,18 +13,24 @@ public class PortfolioController {
 
     @RequestMapping(value="/portfolios")
     public List<Portfolio> getAllPortfolios() {
-
         return portfolioService.getAllPortfolios();
     }
 
-    @RequestMapping(value = "/portfolio/{id}")
-    public Portfolio getPortfolios(@PathVariable Long id) {
-        return portfolioService.getPortfolio(id);
+    @RequestMapping(value = "/portfolio/{ID}")
+    public Portfolio getPortfolios(@PathVariable String ID) {
+        return portfolioService.getPortfolio(ID);
     }
 
     //Create a new portfolio
-    @RequestMapping(value="/portfolios", method= RequestMethod.POST)
+    @RequestMapping(value="/add/portfolio", method= RequestMethod.POST)
     public void addPortfolio(@RequestBody Portfolio portfolio) {
         portfolioService.addPortfolio(portfolio);
+    }
+
+    //Update portfolio
+    @RequestMapping(value = "/update/portfolio/{ID}", method = RequestMethod.PUT)
+    public void updatePortfolio(@RequestBody Portfolio portfolio, @PathVariable String ID) {
+
+        portfolioService.updatePortfolio(ID, portfolio);
     }
 }
