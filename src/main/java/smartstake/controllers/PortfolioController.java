@@ -13,7 +13,7 @@ public class PortfolioController {
     private PortfolioService portfolioService;
 
     //get all portfolios
-    @RequestMapping(value = "/portfolios")
+    @GetMapping(value = "/portfolios")
     public List<Portfolio> getAllPortfolios()
     {
         return portfolioService.getAllPortfolios();
@@ -21,29 +21,29 @@ public class PortfolioController {
 
 
     //get portfolio by id
-    @RequestMapping(value = "/portfolio/{id}")
-    public Optional<Portfolio> getPortfolio(@PathVariable Integer id) {
+    @GetMapping(value = "/portfolio/{id}")
+    public Optional<Portfolio> getPortfolio(@PathVariable Long id) {
         return portfolioService.getPortfolio(id);
     }
 
 
     //create portfolio
-    @RequestMapping(value = "/add/portfolio", method=RequestMethod.POST)
+    @PostMapping(value = "/add/portfolio")
     public void addPortfolio(@RequestBody Portfolio portfolio) {
         portfolioService.addPortfolio(portfolio);
     }
 
 
     //update portfolio
-    @RequestMapping(value = "/update/portfolio/{id}", method = RequestMethod.PUT)
-    public void updatePortfolio(@RequestBody Portfolio portfolio,@PathVariable Integer id ) {
+    @PutMapping(value = "/update/portfolio/{id}")
+    public void updatePortfolio(@RequestBody Portfolio portfolio,@PathVariable Long id ) {
         portfolioService.updatePortfolio(id, portfolio);
     }
 
 
     //delete portfolio
-    @RequestMapping(value = "/delete/portfolio/{id}", method = RequestMethod.DELETE)
-    public void deletePortfolio(@PathVariable Integer id) {
+    @DeleteMapping(value = "/delete/portfolio/{id}")
+    public void deletePortfolio(@PathVariable Long id) {
         portfolioService.deletePortfolio(id);
 
     }

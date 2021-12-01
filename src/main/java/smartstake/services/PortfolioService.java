@@ -30,7 +30,7 @@ public class PortfolioService {
 
     //Get a portfolio by id
 
-    public Optional<Portfolio> getPortfolio(Integer id) {
+    public Optional<Portfolio> getPortfolio(Long id) {
         return portfolioRepository.findById(id);
     }
 
@@ -42,14 +42,12 @@ public class PortfolioService {
 
 
     //Update portfolio
-
-    public void updatePortfolio(Integer id, Portfolio portfolio) {
+    public void updatePortfolio(Long id, Portfolio portfolio) {
         portfolioRepository.save(portfolio);
     }
 
-
     //delete portfolio
-    public void deletePortfolio(Integer id) {
+    public void deletePortfolio(Long id) {
         portfolioRepository.deleteById(id);
     }
 
