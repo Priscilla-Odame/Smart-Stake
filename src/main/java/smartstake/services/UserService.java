@@ -1,4 +1,4 @@
-package smartstake.user;
+package smartstake.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,10 +6,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import smartstake.registration.token.ConfirmationToken;
-import smartstake.registration.token.ConfirmationTokenService;
+import smartstake.entities.AppUser;
+import smartstake.repositories.UserRepository;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -19,7 +18,7 @@ public class UserService implements UserDetailsService {
             "user with email %s not found";
     private final UserRepository repository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final ConfirmationTokenService confirmationTokenService;
+    //private final ConfirmationTokenService confirmationTokenService;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -34,7 +33,6 @@ public class UserService implements UserDetailsService {
                 .isPresent();
         if (userExist) {
             //Todo if email not confirmed send confirmation email
-            //Todo 
             throw new IllegalStateException("email already in use.");
         }
 
@@ -46,13 +44,13 @@ public class UserService implements UserDetailsService {
 
 
         String token = UUID.randomUUID().toString();
-        ConfirmationToken confirmationToken = new ConfirmationToken(
+        /*ConfirmationToken confirmationToken = new ConfirmationToken(
                 token,
                 LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(15),
                 appUser
-        );
-        confirmationTokenService.saveConfirmationToken(confirmationToken);
+        );*/
+        //confirmationTokenService.saveConfirmationToken(confirmationToken);
 
         //Todo send email
         return token;

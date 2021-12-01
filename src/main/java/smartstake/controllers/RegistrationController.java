@@ -1,15 +1,12 @@
-package smartstake.registration;
+package smartstake.controllers;
 
 
 import lombok.AllArgsConstructor;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import smartstake.registration.token.ConfirmationToken;
+import smartstake.registration.RegistrationRequest;
+import smartstake.services.RegistrationService;
 import smartstake.registration.token.ConfirmationTokenService;
-import smartstake.user.AppUser;
-import smartstake.user.UserService;
-
-import java.time.LocalDateTime;
+import smartstake.services.UserService;
 
 @RestController
 @RequestMapping(path = "api/v1/registration")

@@ -1,4 +1,4 @@
-package smartstake.user;
+package smartstake.entities;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import smartstake.user.UserRole;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -37,7 +38,7 @@ public class AppUser implements UserDetails {
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
     private Boolean locked = false;
-    private Boolean enabled = false;
+    private Boolean enabled = true;
 
     public AppUser(String firstName, String last_Name, String email,
                    String password, UserRole userRole) {

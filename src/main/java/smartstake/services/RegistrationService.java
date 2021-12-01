@@ -1,18 +1,14 @@
-package smartstake.registration;
+package smartstake.services;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import smartstake.email.EmailSender;
+//import smartstake.email.EmailSender;
+import smartstake.registration.RegistrationRequest;
 import smartstake.registration.token.ConfirmationToken;
 import smartstake.registration.token.ConfirmationTokenService;
-import smartstake.user.AppUser;
+import smartstake.entities.AppUser;
 import smartstake.user.UserRole;
-import smartstake.user.UserService;
 
 import java.time.LocalDateTime;
 
@@ -23,7 +19,7 @@ public class RegistrationService {
     private final EmailValidator emailValidator;
     private final UserService userService;
     private final ConfirmationTokenService confirmationTokenService;
-    private final EmailSender emailSender;
+   // private final EmailSender emailSender;
 
     public String register(RegistrationRequest request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());
@@ -37,10 +33,10 @@ public class RegistrationService {
                 request.getEmail(),
                 request.getPassword(),
                 UserRole.CLIENT));
-        String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
+        //String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
 
-        emailSender.send(request.getEmail(),
-                buildEmail(request.getFirstName(), link));
+        /*emailSender.send(request.getEmail(),
+                buildEmail(request.getFirstName(), link));*/
         return token;
     }
 

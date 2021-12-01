@@ -4,7 +4,7 @@ package smartstake.registration.token;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import smartstake.user.AppUser;
+import smartstake.entities.AppUser;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

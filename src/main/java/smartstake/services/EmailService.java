@@ -1,4 +1,4 @@
-package smartstake.email;
+package smartstake.services;
 
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-@Service
+/*@Service
 @AllArgsConstructor
 public class EmailService implements EmailSender{
 
@@ -34,4 +34,4 @@ public class EmailService implements EmailSender{
             throw  new IllegalStateException("failed to send to email");
         }
     }
-}
+}*/
