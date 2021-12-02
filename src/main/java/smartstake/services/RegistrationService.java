@@ -8,7 +8,7 @@ import smartstake.registration.RegistrationRequest;
 import smartstake.registration.token.ConfirmationToken;
 import smartstake.registration.token.ConfirmationTokenService;
 import smartstake.entities.AppUser;
-import smartstake.user.UserRole;
+import smartstake.enums.UserRole;
 
 import java.time.LocalDateTime;
 

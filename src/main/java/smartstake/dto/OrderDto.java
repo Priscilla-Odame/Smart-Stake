@@ -68,22 +68,6 @@ public class OrderDto {
         this.side = side;
     }
 
-//    public Status getStatus() {
-//        return status;
-//    }
-//
-//    public void setStatus(Status status) {
-//        this.status = status;
-//    }
-//
-//    public Portfolio getPortfolio() {
-//        return portfolio;
-//    }
-//
-//    public void setPortfolio(Portfolio portfolio) {
-//        this.portfolio = portfolio;
-//    }
-
     public static OrderDto fromModel(Order order) {
         OrderDto orderDto = new OrderDto();
 

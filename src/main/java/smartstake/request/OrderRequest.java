@@ -6,20 +6,18 @@ import smartstake.enums.Side;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.validation.constraints.NotNull;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderRequest {
 
-    @NotNull
+
     private String product;
 
-    @NotNull
+
     private int quantity;
 
-    @NotNull
+
     private Double price;
 
 
