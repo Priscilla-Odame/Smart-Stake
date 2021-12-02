@@ -9,6 +9,7 @@ import smartstake.repositories.ClientRepository;
 
 import java.util.List;
 
+
 @RestController
 public class ClientController {
     @Autowired
@@ -23,3 +24,4 @@ public class ClientController {
     }
 
 }
+
