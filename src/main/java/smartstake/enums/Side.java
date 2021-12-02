@@ -1,4 +1,4 @@
-package smartstake.enumClasses;
+package smartstake.enums;
 
 public enum Side {
    BUY,SELL

@@ -1,6 +1,7 @@
 package smartstake.entities;
-import smartstake.otherClasses.Side;
-import smartstake.otherClasses.Status;
+import smartstake.dto.OrderDto;
+import smartstake.enums.Side;
+import smartstake.enums.Status;
 
 import javax.persistence.*;
 
@@ -8,11 +9,11 @@ import javax.persistence.*;
 @Table(name = "Orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
+    private String product;
     private int quantity;
-    private String ticker;
+    private Double price;
 
     @Enumerated(EnumType.STRING)
     private Side side;
@@ -23,16 +24,20 @@ public class Order {
     @ManyToOne
     private Portfolio portfolio;
 
-    public Order(int quantity, Side side) {
-        this.quantity = quantity;
-        this.side = side;
-    }
-
-    public Order() {
-    }
-
-    public Long getId() {
+    public String getId() {
         return id;
+    }
+
+    public void setId (String id) {
+        this.id = id;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
     }
 
     public int getQuantity() {
@@ -43,12 +48,28 @@ public class Order {
         this.quantity = quantity;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public Side getSide() {
         return side;
     }
 
     public void setSide(Side side) {
         this.side = side;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public Portfolio getPortfolio() {
@@ -59,4 +80,12 @@ public class Order {
         this.portfolio = portfolio;
     }
 
+    public static Order fromDto(OrderDto orderDto) {
+        Order order = new Order();
+        order.setProduct(orderDto.getProduct());
+//        order.setPortfolio(orderDto.getPortfolio());
+        order.setPrice(orderDto.getPrice());
+
+        return order;
+    }
 }
