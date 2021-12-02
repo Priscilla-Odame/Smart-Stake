@@ -1,4 +1,4 @@
-package smartstake.user;
+package smartstake.enums;
 
 public enum UserRole {
     CLIENT,ADMIN
