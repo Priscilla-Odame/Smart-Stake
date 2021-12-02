@@ -1,21 +1,13 @@
 package smartstake.controllers;
 
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import smartstake.dto.OrderDto;
-import smartstake.entities.Order;
-import smartstake.repositories.OrderRepository;
 import smartstake.request.OrderRequest;
 import smartstake.services.IOrderService;
-
-import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
