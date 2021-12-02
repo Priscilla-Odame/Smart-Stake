@@ -6,3 +6,4 @@ import smartstake.entities.Client;
 public interface ClientRepository extends JpaRepository<Client, Integer> {
 
 }
+
